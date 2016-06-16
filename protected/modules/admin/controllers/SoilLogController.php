@@ -16,6 +16,7 @@ class SoilLogController extends Controller{
         $model = new SoilLog();
         $soil = SoilLog::model()->getSoilId();
         $this->is_upload = true;//用到图片上传
+        $model->shot_time = date("Y-m-d H:i:s");
         $this->render('_form', array('model' => $model,'soil'=>$soil));
     }
 
@@ -24,6 +25,7 @@ class SoilLogController extends Controller{
         $id = Yii::app()->request->getParam('id', 0);
         $model = SoilLog::model()->findByPk($id);
         $soil = SoilLog::model()->getSoilId();
+        $model->shot_time  = $model->shot_time ? date("Y-m-d H:i:s",$model->shot_time) : "";
         $this->render('_form', array('model' => $model,'soil'=>$soil));
     }
 
@@ -36,7 +38,11 @@ class SoilLogController extends Controller{
             $model->created = time();
         }
         try {
-            $model->attributes = Yii::app()->request->getPost('SoilLog');
+            $post = Yii::app()->request->getPost('SoilLog');
+            if($post['shot_time']){
+                $post['shot_time'] = strtotime($post['shot_time']);
+            }
+            $model->attributes = $post;
             $model->pic_list = implode(",", Yii::app()->request->getPost('pic_list'));
               if($soil_id = $_POST['SoilLog']['soil_id']){
                 $soil_sn = Soil::model()->findByPk($soil_id);

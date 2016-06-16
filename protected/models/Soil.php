@@ -41,6 +41,7 @@ class Soil extends CActiveRecord {
             array('mobile,soil_sn','unique'),
             array('is_bind, created', 'numerical', 'integerOnly' => true),
             array('soil_sn, mobile', 'length', 'max' => 16),
+            array('mobile', 'match', 'pattern' => '/^((\+86)|(86)|\(86\)|(\+86\)))?((1[3|4|5|7|8])\d{9}$)/', 'allowEmpty' => true, 'message' => '手机格式错误'),
             array('username, openid', 'length', 'max' => 64),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.

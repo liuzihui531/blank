@@ -33,7 +33,12 @@ class SoilController extends Controller {
             $model->created = time();
         }
         try {
-            $model->attributes = Yii::app()->request->getPost('Soil');
+            $post = Yii::app()->request->getPost('Soil');
+            if($model->mobile != $post['mobile']){
+                $model->openid = NULL;
+                $model->is_bind = 0;
+            }
+            $model->attributes = $post;
             $model->save();
             if ($model->hasErrors()) {
                 throw new Exception(Utils::getFirstError($model->errors));

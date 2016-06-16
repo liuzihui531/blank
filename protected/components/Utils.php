@@ -290,4 +290,36 @@ class Utils {
         return unserialize($serial_str);
     }
 
+    /**
+     * @desc 发送邮件
+     * @param string $to 收件人
+     * @param string $title 邮件标题
+     * @param string $content 邮件内容
+     * @return boolean $return
+     * @author wg
+     */
+    public static function sendMail($to, $title, $content) {
+        //发邮件
+        $email = new Email();
+        $email_params = Yii::app()->params['email'];
+        $email->set('email_server', $email_params['email_server']);
+        $email->set('email_port', $email_params['email_port']);
+        $email->set('email_user', $email_params['email_user']);
+        $email->set('email_password', $email_params['email_password']);
+        $email->set('email_from', $email_params['email_from']);
+        $email->set('site_name', $email_params['site_name']);
+        $rs = $email->send($to, $title, $content);
+        $msg = $email->getErrMsg();
+        return Utils::formatReturn($rs, $msg);
+    }
+
+    //格式化返回的数据
+    public static function formatReturn($status, $message, $isJson = false) {
+        $return = array('status' => $status, 'message' => $message);
+        if ($isJson) {
+            return CJSON::encode($return);
+        }
+        return $return;
+    }
+
 }

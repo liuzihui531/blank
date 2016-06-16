@@ -25,7 +25,7 @@ return array(
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
             'ipFilters' => array('127.0.0.1', '192.168.10.196', '::1'),
         ),
-        'admin',
+        'admin','wechat'
     ),
     // application components
     'components' => array(
@@ -72,7 +72,15 @@ return array(
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
     'params' => array(
-            //'host' => 'http://yd.com',
-        'not_seo_controller' => array('news'),//不在总后台“页面seo信息”编辑，而在各自的页面上编辑的控制器
+        //'host' => 'http://yd.com',
+        'not_seo_controller' => array('news'), //不在总后台“页面seo信息”编辑，而在各自的页面上编辑的控制器
+        'email' => array(
+            'email_server' => 'smtp.126.com',
+            'email_port' => 25,
+            'email_user' => 'ycgpp@126.com',
+            'email_password' => 'ycGPP163',
+            'email_from' => 'ycgpp@126.com',
+            'site_name' => 'xxx',
+        ),
     ),
 );

@@ -50,7 +50,7 @@ $form = $this->beginWidget('CActiveForm', array(
     <?php echo $form->labelEx($model, 'shot_time', array('class' => 'col-sm-3 control-label no-padding-right')) ?>
 
     <div class="col-sm-9">
-        <?php echo $form->textField($model, 'shot_time', array('class' => 'col-xs-10 col-sm-5 date-picker', 'id' => 'id-date-picker-1', 'data-date-format' => 'dd-mm-yyyy')) ?>
+        <?php echo $form->textField($model, 'shot_time', array('class' => 'col-xs-10 col-sm-5 date-picker', 'id' => 'shot_time')) ?>
     </div>
 </div>
 
@@ -69,3 +69,19 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
 </div>
 <?php $this->endWidget(); ?>
+<script type="text/javascript">
+    $(function(){
+        var shot_time = {
+            elem: '#shot_time',
+            format: 'YYYY-MM-DD hh:mm:ss',
+            min: '1970-01-01', //
+            max: '2099-06-16', //
+            istime: true,
+            istoday: false,
+            choose: function (datas) {
+            }
+        };
+        laydate(shot_time);
+        laydate.skin('huanglv');
+    });
+</script>

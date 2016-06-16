@@ -338,6 +338,8 @@ window.jQuery || document.write("<script src='<?php echo Yii::app()->params['hos
         <!-- inline scripts related to this page -->
         <script src="<?php echo Yii::app()->params['host']; ?>/static/admin/js/ace.js"></script>
         <script src="<?php echo Yii::app()->params['host']; ?>/static/admin/js/common.js"></script>
+        <!--laydate日期插件-->
+        <script type="text/javascript" src="/static/laydate/laydate.js"></script>
         <?php if ($this->is_ueditor)://用到编辑器 ?>
             <script type="text/javascript" charset="utf-8" src="<?php echo Yii::app()->params['host']; ?>/static/ueditor/ueditor.config.js"></script>
             <script type="text/javascript" charset="utf-8" src="<?php echo Yii::app()->params['host']; ?>/static/ueditor/ueditor.all.min.js"></script>

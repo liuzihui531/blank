@@ -32,14 +32,6 @@ $form = $this->beginWidget('CActiveForm', array(
         <?php echo $form->numberField($model, 'mobile', array('class' => 'col-xs-10 col-sm-5')) ?>
     </div>
 </div>
-<div class="form-group">
-    <?php echo $form->labelEx($model, 'is_bind', array('class' => 'col-sm-3 control-label no-padding-right')) ?>
-    &nbsp;
-    <label>
-        <?php echo $form->checkBox($model, 'is_bind', array('class' => 'ace ace-switch ace-switch-5')) ?>
-        <span class="lbl"></span>
-    </label>
-</div>
 
 <div class="clearfix form-actions">
     <div class="col-md-offset-3 col-md-9">
