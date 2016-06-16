@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-06-16 09:44:53
+Date: 2016-06-16 10:54:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -87,6 +87,46 @@ INSERT INTO `news_category` VALUES ('1', '云滴旅行', '0', '10', '1463559139'
 INSERT INTO `news_category` VALUES ('2', '云滴生活', '0', '20', '1463559149', '', '', null);
 INSERT INTO `news_category` VALUES ('3', '云滴活动', '0', '30', '1463559157', '', '', null);
 INSERT INTO `news_category` VALUES ('4', '云滴动态', '0', '40', '1463559165', '', '', null);
+
+-- ----------------------------
+-- Table structure for `soil`
+-- ----------------------------
+DROP TABLE IF EXISTS `soil`;
+CREATE TABLE `soil` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `soil_sn` varchar(16) NOT NULL DEFAULT '' COMMENT '地块编号',
+  `username` varchar(64) NOT NULL DEFAULT '' COMMENT '会员姓名',
+  `mobile` varchar(16) DEFAULT NULL COMMENT '手机号码',
+  `openid` varchar(64) DEFAULT NULL COMMENT 'openid',
+  `created` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `soil_num` (`soil_sn`),
+  UNIQUE KEY `mobile` (`mobile`),
+  UNIQUE KEY `openid` (`openid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='地块表';
+
+-- ----------------------------
+-- Records of soil
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `soil_log`
+-- ----------------------------
+DROP TABLE IF EXISTS `soil_log`;
+CREATE TABLE `soil_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `soil_id` int(11) NOT NULL DEFAULT '0' COMMENT '地块ID',
+  `soil_sn` varchar(16) NOT NULL DEFAULT '' COMMENT '地块编号',
+  `content` varchar(512) DEFAULT NULL,
+  `pic_list` longtext COMMENT '图片列表',
+  `shot_time` int(11) NOT NULL DEFAULT '0' COMMENT '拍摄时间',
+  `created` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of soil_log
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `upload`
