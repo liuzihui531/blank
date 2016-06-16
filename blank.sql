@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-06-16 10:54:14
+Date: 2016-06-16 11:13:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -98,6 +98,7 @@ CREATE TABLE `soil` (
   `username` varchar(64) NOT NULL DEFAULT '' COMMENT '会员姓名',
   `mobile` varchar(16) DEFAULT NULL COMMENT '手机号码',
   `openid` varchar(64) DEFAULT NULL COMMENT 'openid',
+  `is_bind` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否绑定',
   `created` int(11) NOT NULL DEFAULT '0' COMMENT '添加时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `soil_num` (`soil_sn`),
