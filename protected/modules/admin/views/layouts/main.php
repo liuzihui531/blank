@@ -195,6 +195,19 @@ window.jQuery || document.write("<script src='<?php echo Yii::app()->params['hos
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="<?php echo $this->createUrl('/admin/soil') ?>">
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 地块列表 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $this->createUrl('/admin/soillog') ?>">
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 地块日志 </span>
+                            </a>
+                        </li>
+
                     </ul><!-- /.nav-list -->
 
                     <div class="sidebar-collapse" id="sidebar-collapse">
@@ -332,7 +345,7 @@ window.jQuery || document.write("<script src='<?php echo Yii::app()->params['hos
             <!-- 实例化编辑器 -->
             <script src="<?php echo Yii::app()->params['host']; ?>/static/admin/js/ueditor.js"></script>
         <?php endif; ?>
-        <?php if ($this->is_ueditor)://用到编辑器 ?>
+        <?php if ($this->is_upload)://用到编辑器 ?>
             <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->params['host']; ?>/static/webuploader/css/webuploader.css" />
             <script type="text/javascript" src="<?php echo Yii::app()->params['host']; ?>/static/webuploader/dist/webuploader.js"></script>
             <script type="text/javascript" src="<?php echo Yii::app()->params['host']; ?>/static/admin/js/upload.js"></script>
