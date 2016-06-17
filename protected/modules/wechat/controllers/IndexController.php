@@ -11,8 +11,14 @@
  *
  * @author Administrator
  */
-class IndexController extends WechatBaseController{
-    public function actionIndex(){
-        echo 1;exit;
+class IndexController extends WechatBaseController {
+
+    public function actionIndex() {
+        $cookie = Yii::app()->request->getCookies();
+        if(!isset($cookie['openid']->value) && empty($cookie['openid']->value)){
+            $this->redirect('wechat/login/index');
+        }
+        $this->render('index');
     }
+
 }
